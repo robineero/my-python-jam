@@ -2,8 +2,9 @@
 
 class Product:
 
-    # Konstruktor algab. Uue toote tegemine tähendab seda, et käivitatakse konstruktor ja luuakse 'andmete komplekt'.
+    # Uue toote tegemine tähendab seda, et käivitatakse konstruktor ja luuakse 'andmete komplekt'.
     # Sellest komplektist saab hiljem andmeid küsida. Komplektis olevaid andmeid saab hiljem ka muuta.
+    # Konstruktor algab >>
     def __init__(self, brand, model, price, stock, category, tags):
         self.brand = brand
         self.model = model
@@ -12,6 +13,8 @@ class Product:
         self._volume = 0  # ruumala, _on ees, sest konstruktoris seda pole, vaikimis väärtus, uus väärtus tuleb setterist (kui tuleb)
         self.category = category
         self.tags = tags  # Selle parameetri tüübiks on list
+
+    # << Konstruktor lõppeb
 
     # See pmst on getter? Näeb välja nagu funktsioon aga tegelikult annab sulle lihtsalt toote infot välja.
     @property  # See on lihtsalt toote üks parameetritest, mis moodustatakse teistest parameetritest.
@@ -28,8 +31,10 @@ class Product:
     # Et muuta privaatseid parameetreid?
     @volume.setter
     def volume(self, volume_string):
-        a, b, c = volume_string.split('x')
-        self.volume = int(a) * int(b) * int(c)
+        print("Vol string: " + volume_string)
+        x, y, z = volume_string.split("x")
+        volume = int(x) * int(y) * int(z)
+        self._volume = volume
 
 
 # Siit algab programm. Üleval on lihtsalt funktsionaalsust kirjeldatud.
@@ -39,6 +44,8 @@ if __name__ == '__main__':
     # NB! Objekt ei pea tegelikult üldse olema muutujale omistatud! Neid võib niisama ka listi toppida :)
     jalgratas = Product('Valio', 'Speedster Gravel 10', 2299, 1, 'jalgrattad', ['sport', 'scott', 'rattad'])
     parka = Product('Didriksons', 'Dante', 569.95, 10, 'meeste parkad', ['meestele', 'talv'])
+
+    jalgratas.volume = "110x28x82"
 
     # Nii saan Product tüüpi objektist küsida parameetreid. Näiteks muutujasse 'jalgratas' salvestatud toote brändi.
     print(f"01. Näide, kuidas saab toote andmeid pärida: {jalgratas.brand}")
