@@ -17,7 +17,7 @@ def list_of_tires():  # loeb faili ja tagastab Tire tüüpi objekte sisaldava li
     tires = []
     with open('simple-oop-tires.csv', mode='r') as file:
         for x in file:
-            brand, model, season, width, height, diameter = x.strip().split(",")
+            brand, model, season, width, height, diameter = x.strip().split(";")
 
             size = {
                 "width": int(width),
@@ -43,9 +43,5 @@ def get_tires_by_size(width, height, diameter, catalogue):
 if __name__ == '__main__':
     list_of_tires = list_of_tires()
 
-    print("\nPrindime välja toodete nimekirja: ")
-    for tire in list_of_tires:
-        print(tire)
-
-    print("\nPrindime valitud parameetritega toodete nimekirja: ")
+    print("\nPrindime valitud parameetritega toodete nimekirja (4000+ toote hulgast): ")
     get_tires_by_size(205, 55, "R16", list_of_tires)
