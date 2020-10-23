@@ -28,9 +28,10 @@ def list_of_tires():  # loeb faili ja tagastab Tire tüüpi objekte sisaldava li
             tire = Tire(brand, model, season, size)  # teeb uue Tire tüüpi objekti ja appendib selle listi
             tires.append(tire)
 
-    return tires
+    return tires  # Tagastab listi, kus on Tire tüüpi objektid (rehvid).
 
 
+# Funktsioon, millega saab listist küsida ette antud parameetritega rehve (nn tootefilter tootekataloogile)
 def get_tires_by_size(width, height, diameter, catalogue):
 
     count = 1
